@@ -4,9 +4,11 @@ class CustomInputField extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
 
-  CustomInputField({
+   CustomInputField({
     required this.controller,
-    required this.labelText, required Color cursorColor, required Color borderColor,
+    required this.labelText,
+    required Color cursorColor,
+    required Color borderColor,
   });
 
   @override

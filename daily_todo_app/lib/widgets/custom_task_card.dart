@@ -42,7 +42,7 @@ class CustomTaskCard extends StatelessWidget {
                 Checkbox(
                   value: task.isCompleted,
                   onChanged: onCheckboxChanged,
-                  activeColor: Colors.blue,
+                  activeColor: Colors.black,
                 ),
               ],
             ),

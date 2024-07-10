@@ -38,28 +38,31 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Obx(() {
+            // Obx: Yeh GetX ka widget hai jo real-time updates dekhata hai.
+            //      Agar task list khali hai toh "No tasks for today" text show karega, warna tasks list banayega.
             return taskController.taskList.isEmpty
                 ? Center(
-              child: Text(
-                'No tasks for today',
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-            )
+                    child: Text(
+                      'No tasks for today',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  )
                 : ListView.builder(
-              itemCount: taskController.taskList.length,
-              itemBuilder: (context, index) {
-                final task = taskController.taskList[index];
-                return CustomTaskCard(
-                  task: task,
-                  onTap: () {
-                    Get.to(() => TaskDetailsScreen(task: task, index: index));
-                  },
-                  onCheckboxChanged: (value) {
-                    taskController.toggleTaskCompletion(index);
-                  },
-                );
-              },
-            );
+                    itemCount: taskController.taskList.length,
+                    itemBuilder: (context, index) {
+                      final task = taskController.taskList[index];
+                      return CustomTaskCard(
+                        task: task,
+                        onTap: () {
+                          Get.to(() =>
+                              TaskDetailsScreen(task: task, index: index));
+                        },
+                        onCheckboxChanged: (value) {
+                          taskController.toggleTaskCompletion(index);
+                        },
+                      );
+                    },
+                  );
           }),
         ],
       ),
